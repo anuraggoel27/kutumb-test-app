@@ -37,7 +37,7 @@ function QuoteGeneration() {
 
     try {
       const response = await axios.post(
-        "https://crafto.app/crafto/v1.0/media/assignment/upload",
+        process.env.REACT_APP_UPLOAD_URL,
         formData,
         {
           headers: {
@@ -54,7 +54,7 @@ function QuoteGeneration() {
   const handleUpload = async () => {
     try {
       await axios.post(
-        "https://assignment.stage.crafto.app/postQuote",
+        process.env.REACT_APP_POST_URL,
         {
           text: quote,
           mediaURL: imageURL,
@@ -65,6 +65,7 @@ function QuoteGeneration() {
           },
         }
       );
+      alert("Quote uploaded successfully!")
     } catch (error) {
       alert("Quote generation failed");
     }

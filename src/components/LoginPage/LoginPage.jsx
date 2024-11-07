@@ -17,7 +17,7 @@ function Login() {
       const check = async () => {
         try {
           const response = await axios.get(
-            `https://assignment.stage.crafto.app/getQuotes?limit=20&offset=0`,
+            process.env.REACT_APP_GET_QUOTES_URL,
             {
               headers: {
                 Authorization: token,
@@ -37,20 +37,29 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        "https://assignment.stage.crafto.app/login",
-        {
-          username,
-          otp,
+      if(otp !== process.env.REACT_APP_OTP){
+        alert("Incorrect OTP entered!");
+        window.location.href = process.env.REACT_APP_FRONTEND_URL + "login";
+      }else if(username === ""){
+        alert("Username cant be empty");
+        window.location.href = process.env.REACT_APP_FRONTEND_URL + "login";
+      }else{
+        const response = await axios.post(
+          process.env.REACT_APP_LOGIN_URL,
+          {
+            username,
+            otp,
+          }
+        );
+        const token = response.data.token;
+  
+        sessionStorage.setItem("authToken", token);
+        dispatch(setToken(token));
+        if (response.status === 200) {
+          window.location.href = process.env.REACT_APP_FRONTEND_URL;
         }
-      );
-      const token = response.data.token;
-
-      sessionStorage.setItem("authToken", token);
-      dispatch(setToken(token));
-      if (response.status === 200) {
-        window.location.href = "http://localhost:3000/";
       }
+      
     } catch (error) {
       console.error("Login failed:", error);
     }
@@ -92,10 +101,10 @@ function Login() {
           </div>
           <div className="loggedin-buttons">
             <div className="loggedin-button">
-              <button onClick={()=>window.location.href="http://localhost:3000"}> GO TO FEED</button>
+              <button onClick={()=>window.location.href=process.env.REACT_APP_FRONTEND_URL}> GO TO FEED</button>
             </div>
             <div className="loggedin-button">
-              <button onClick={()=>window.location.href="http://localhost:3000/upload"}> UPLOAD A NEW QUOTE </button>
+              <button onClick={()=>window.location.href=process.env.REACT_APP_FRONTEND_URL}> UPLOAD A NEW QUOTE </button>
             </div>
           </div>
           <LogoutButton/>

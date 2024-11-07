@@ -55,7 +55,7 @@ function QuotesList() {
       } catch (error) {
         if (error.response.status === 401) {
           alert("Please login to continue");
-          window.location.href = "http://localhost:3000/login";
+          window.location.href = process.env.REACT_APP_FRONTEND_URL+"login";
         }
       } finally {
         setLoading(false);

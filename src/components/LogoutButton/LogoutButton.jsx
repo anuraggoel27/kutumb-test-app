@@ -9,7 +9,7 @@ function LogoutButton() {
     function handleClick() {
         sessionStorage.removeItem("authToken");
         dispatch(clearToken());
-        window.location.href="http://localhost:3000/login";
+        window.location.href = process.env.REACT_APP_FRONTEND_URL + "login";
     }
     return ( 
         <div className="logout-button-container" onMouseOver={()=>setShowText(true)} onMouseLeave={()=>setShowText(false)} onClick={handleClick}>
