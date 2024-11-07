@@ -65,10 +65,8 @@ function QuoteGeneration() {
           },
         }
       );
-      console.log("File upload successful!");
     } catch (error) {
       alert("Quote generation failed");
-      console.log(error);
     }
   };
 

@@ -53,7 +53,6 @@ function QuotesList() {
           setHasMore(false);
         }
       } catch (error) {
-        console.log(error);
         if (error.response.status === 401) {
           alert("Please login to continue");
           window.location.href = "http://localhost:3000/login";

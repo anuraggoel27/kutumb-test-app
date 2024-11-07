@@ -104,7 +104,9 @@
     padding: 0.5rem 1rem;
 }
 
-/*.stage-image{
+@media (max-width: 1000px) {
+    .quote-generation-content{
+        width: 85%;
+        height: 60%;
+    }
 }
-.remove-image{
-}*/

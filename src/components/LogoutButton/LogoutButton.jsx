@@ -9,6 +9,7 @@ function LogoutButton() {
     function handleClick() {
         sessionStorage.removeItem("authToken");
         dispatch(clearToken());
+        window.location.href="http://localhost:3000/login";
     }
     return ( 
         <div className="logout-button-container" onMouseOver={()=>setShowText(true)} onMouseLeave={()=>setShowText(false)} onClick={handleClick}>

@@ -51,3 +51,11 @@
     background-color: black;
     color: white;
 }
+
+
+@media (max-width: 1000px) {
+    .login-page-content, .loggedin-content{
+        width: 90%;
+        height: 50%;
+    }
+}

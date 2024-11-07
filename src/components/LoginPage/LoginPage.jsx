@@ -24,10 +24,8 @@ function Login() {
               },
             }
           );
-          console.log("Logged In");
           if (response.status === 200) setLoggedIn(true);
         } catch (error) {
-          console.log(error);
           if (error.response.status === 401) {
             setLoggedIn(false);
           }
@@ -47,7 +45,6 @@ function Login() {
         }
       );
       const token = response.data.token;
-      console.log("Login Successful!");
 
       sessionStorage.setItem("authToken", token);
       dispatch(setToken(token));
@@ -63,7 +60,7 @@ function Login() {
       {!loggedIn && (
         <div className="login-page-content">
           <div className="login-page-heading">
-            <h1>Login</h1>
+            <h1>LOGIN</h1>
           </div>
           <div className="input-container">
             <input
