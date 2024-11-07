@@ -1,7 +1,7 @@
-import withAuth from './withAuth';
+import authenticate from './authenticate';
 import QuoteGeneration from './QuoteGeneration/QuoteGeneration';
 import QuotesList from './QuotesList/QuotesList';
 
-export const ProtectedQuoteGeneration = withAuth(QuoteGeneration);
-export const ProtectedQuotesList = withAuth(QuotesList);
+export const ProtectedQuoteGeneration = authenticate(QuoteGeneration);
+export const ProtectedQuotesList = authenticate(QuotesList);
 

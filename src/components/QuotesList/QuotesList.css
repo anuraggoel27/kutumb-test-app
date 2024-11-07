@@ -1,4 +1,111 @@
-.quote-list-image{
-    height:100px;
-    width:100px;
+.quotes-list-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: white;
 }
+.quote-list-image-container{
+    position: relative;
+    height:200px;
+}
+.quote-list-image{
+    height:200px;
+    width:100%;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #fff;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.quote-list-image-container:hover .overlay {
+    opacity: 1;
+}
+
+.quote-text {
+    font-size: 18px;
+    text-align: center;
+    padding: 0 20px;
+}
+.quote-list-info-container{
+    /*width: 100%;*/
+    padding: 2.5% 5% ;
+    height: 30%;
+}
+.quote-item{
+    width: 250px;
+    padding: 0;
+    margin: 2.5% 0.5% 0;
+    box-shadow: rgb(255, 255, 255) 0px 3px 8px;
+}
+.paginator{
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+} 
+.page-control{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+}
+.generation-floating-button{
+    position: fixed;
+    z-index: 100;
+    bottom: 100px;
+    right: 50px;
+    background-color: white;
+    color: black;
+    border: 0 none;
+    height: 3rem;
+    width: 3rem;
+    transition: 0.25s;
+    border-radius: 1.5rem;
+}
+.generation-floating-button:hover{
+    width: 7.5rem;
+    transition: 0.25s;
+}
+.loading-container {
+    display: flex;
+    bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust as needed */
+    width: 100vw;
+}
+
+.spinner {
+    border: 4px solid rgb(255, 255, 255);
+    border-top: 4px solid #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+

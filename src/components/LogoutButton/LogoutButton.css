@@ -1,0 +1,18 @@
+/*.logout-button-container{
+}*/
+.logout-button{
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 100;
+    background-color: white;
+    color: black;
+    height: 3rem;
+    width: 3rem;
+    transition: 0.25s;
+    border-radius: 1.5rem;
+}
+.logout-button:hover{
+    width: 7.5rem;
+    transition: 0.25s;
+}
